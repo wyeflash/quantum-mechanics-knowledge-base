@@ -103,11 +103,9 @@ log_ok "构建成功！共 $BUILD_FILES 个文件，大小 $BUILD_SIZE"
 # 4. 部署
 # ============================================
 header "Step 3: 部署到服务器"
-log_info "清空旧版本..."
-sudo rm -rf "${WEB_DIR:?}/*"
+log_info "同步构建产物（rsync --delete 清理旧版本残留）..."
+sudo rsync -a --delete "${BUILD_DIR}/" "${WEB_DIR}/"
 
-log_info "复制构建产物..."
-sudo cp -r "${BUILD_DIR}"/* "$WEB_DIR/"
 sudo chown -R www:www "$WEB_DIR"
 
 DEPLOYED_FILES=$(find "$WEB_DIR" -type f | wc -l)
