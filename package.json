@@ -1,0 +1,19 @@
+{
+  "name": "qmkb",
+  "version": "1.0.0",
+  "description": "> Quantum Mechanics Knowledge Base",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "vitepress build",
+    "dev": "vitepress dev",
+    "lint": "node scripts/lint.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "markdown-it-mathjax3": "^4.3.2",
+    "vitepress": "^1.6.4"
+  }
+}
